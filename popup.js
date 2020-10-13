@@ -1,11 +1,18 @@
  var key = 'zig';
  var value = 'zag';
+ var flag = 'red';
    chrome.storage.local.set({key: value}, function() {
           console.log('Value is set to ' + value);
         });
   chrome.storage.local.get(['key'], function(result) {
-          console.log('Value currently is ' + result.key);
+          console.log(result.key)
+          flag = result.key;
+          flagColor();         
         });
+console.log(flag);
+function flagColor() {  
+console.log('The flag is: ' +flag);
+}
     
 
 chrome.runtime.onMessage.addListener(function(request, sender) {
